@@ -1,0 +1,12 @@
+
+-----Con autenticacion
+/account
+/loans
+/balance
+/cards
+
+-----Sin autenticacion
+/welcome
+/about_us
+
+https://www.youtube.com/watch?v=RHTmR27OZOs
