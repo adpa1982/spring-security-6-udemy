@@ -58,13 +58,13 @@ public class SecurityConfig {
         return new JdbcUserDetailsManager(dataSource);
     } */
 
-    /*@Bean
-    PasswordEncoder passwordEncoder() {
-        return  NoOpPasswordEncoder.getInstance();
-    }*/
-
     @Bean
     PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        return  NoOpPasswordEncoder.getInstance();
     }
+
+    /*@Bean
+    PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }*/
 }
