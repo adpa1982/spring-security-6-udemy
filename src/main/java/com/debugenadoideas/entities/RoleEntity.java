@@ -5,18 +5,17 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.math.BigInteger;
-import java.util.List;
 
 /**
  * @author Alberto Puche Algarin
  * @version 1.0
- * @description CustomerEntity
+ * @description RoleEntity
  * @date
  */
 @Entity
-@Table(name = "customers")
+@Table(name = "roles")
 @Data
-public class CustomerEntity implements Serializable {
+public class RoleEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -24,12 +23,8 @@ public class CustomerEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private BigInteger id;
 
-    private String email;
+    @Column(name = "role_name")
+    private String name;
 
-    @Column(name = "pwd")
-    private  String password;
-
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_customer")
-    private List<RoleEntity> roles;
+    private String description;
 }

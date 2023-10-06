@@ -3,6 +3,7 @@ package com.debugenadoideas.security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -29,6 +30,7 @@ import java.util.List;
  * @description SecurityConfig
  * @date
  */
+@EnableMethodSecurity
 @Configuration
 public class SecurityConfig {
 
@@ -39,10 +41,15 @@ public class SecurityConfig {
         requestHandler.setCsrfRequestAttributeName("_csrf");
 
         http.authorizeHttpRequests(auth ->
-                auth.requestMatchers("/loans/**", "/balance/", "/accounts/", "/cards/")
-                        .authenticated()
-                        .anyRequest()
-                        .permitAll())
+                auth
+                        .requestMatchers("/loans/**").hasAuthority("VIEW_LOANS")
+                        .requestMatchers("/balance/**").hasAuthority("VIEW_BALANCE")
+                        .requestMatchers("/cards/**").hasAuthority("VIEW_CARDS")
+                        //.requestMatchers("/accounts/**").hasAnyAuthority("VIEW_ACCOUNT", "VIEW_CARDS")
+                        /*.requestMatchers("/loans/**", "/balance/**").hasRole("ADMIN")
+                        .requestMatchers("/accounts/**", "/cards/**").hasRole("USER")*/
+
+                        .anyRequest().permitAll())
                 .formLogin(Customizer.withDefaults())
                 .httpBasic(Customizer.withDefaults());
 
