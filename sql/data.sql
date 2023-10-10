@@ -10,7 +10,7 @@ INSERT INTO roles(id, role_name, description, id_customer) values (3, 'VIEW_LOAN
 INSERT INTO roles(id, role_name, description, id_customer) values (4, 'VIEW_BALANCE', 'cant view balance endpoint', 5);
 
 
-INSERT INTO roles(role_name, description, id_customer) values ('ROLE_ADMIN', 'cant view account endpoint',21);
-INSERT INTO roles(role_name, description, id_customer) values ('ROLE_ADMIN', 'cant view cards endpoint', 3);
-INSERT INTO roles(role_name, description, id_customer) values ('ROLE_USER', 'cant view loans endpoint', 4);
-INSERT INTO roles(role_name, description, id_customer) values ('ROLE_USER', 'cant view balance endpoint', 5);
+INSERT INTO roles(id, role_name, description, id_customer) values (1, 'ROLE_ADMIN', 'cant view account endpoint',2);
+INSERT INTO roles(id, role_name, description, id_customer) values (2, 'ROLE_ADMIN', 'cant view cards endpoint', 3);
+INSERT INTO roles(id, role_name, description, id_customer) values (3, 'ROLE_USER', 'cant view loans endpoint', 4);
+INSERT INTO roles(id, role_name, description, id_customer) values (4, 'ROLE_USER', 'cant view balance endpoint', 5);
